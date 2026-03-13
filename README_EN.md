@@ -41,16 +41,16 @@ Skill is a command-line tool developed in Go to help AI Agent manage skill packa
 **Windows:**
 
 ```cmd
-git clone
-cd .\ai-agent-skill
+git clone https://github.com/Nings-379/skillctl.git
+cd .\skillctl
 go build -o skillctl.exe .
 ```
 
 **Linux/macOS:**
 
 ```bash
-git clone
-cd ai-agent-skill
+git clone https://github.com/Nings-379/skillctl.git
+cd skillctl
 go build -o skillctl .
 ```
 
