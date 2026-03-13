@@ -494,7 +494,7 @@ skillctl push pdf -r -R https://github.com/user/repo
 使用 GitHub API 上传技能到指定的远程仓库。
 
 **推送查询目录：**
-$env:GITEE_TOKEN="fd569547d719de0e3cefde1f2bc5bffe"
+
 `push` 命令会按以下顺序在项目目录中查找技能：
 
 1. `.github/skills`
@@ -505,9 +505,6 @@ $env:GITEE_TOKEN="fd569547d719de0e3cefde1f2bc5bffe"
 **远程推送认证：**
 
 推送到远程仓库需要设置 GitHub Token。以下是不同操作系统的配置方法：
-目前测试使用的仓库和token
-url：https://github.com/Nings-379/ninskills
-token：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
 
 ### Windows
 
