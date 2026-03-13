@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const { execSync } = require('child_process');
 
-console.log('🔧 正在配置 skillctl...');
+console.log('🔧 正在配置 skillctl-cli...');
 
 const binariesDir = path.join(__dirname, '..', 'binaries');
 const binaryName = process.platform === 'win32' ? 'skillctl.exe' : 'skillctl';
@@ -15,12 +15,12 @@ if (fs.existsSync(binaryPath)) {
   try {
     // 验证版本
     const version = execSync(`"${binaryPath}" --version`, { encoding: 'utf8' }).trim();
-    console.log(`✅ skillctl ${version} 已就绪`);
+    console.log(`✅ skillctl-cli ${version} 已就绪`);
   } catch (err) {
-    console.warn('⚠️  无法验证 skillctl 版本');
+    console.warn('⚠️  无法验证 skillctl-cli 版本');
   }
 } else {
-  console.warn('⚠️  skillctl 二进制文件不存在，请运行 npm install');
+  console.warn('⚠️  skillctl 二进制文件不存在，请运行 npm install skillctl-cli');
 }
 
 console.log('🎉 安装完成！');

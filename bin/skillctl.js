@@ -23,13 +23,13 @@ const archMap = {
 };
 
 // 构建可执行文件名
-const binaryName = platform === 'win32' ? 'skillctl.exe' : 'skillctl';
+const binaryName = platform === 'win32' ? 'skillctl-cli.exe' : 'skillctl-cli';
 const binaryPath = path.join(__dirname, 'binaries', binaryName);
 
 // 检查二进制文件是否存在
 if (!require('fs').existsSync(binaryPath)) {
-  console.error('❌ 错误: skillctl 二进制文件不存在');
-  console.error('📝 请运行: npm install skillctl');
+  console.error('❌ 错误: skillctl-cli 二进制文件不存在');
+  console.error('📝 请运行: npm install skillctl-cli');
   process.exit(1);
 }
 

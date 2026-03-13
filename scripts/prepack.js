@@ -15,11 +15,11 @@ if (!fs.existsSync(binariesDir)) {
 console.log('🔨 正在编译 Go 二进制文件...');
 
 const platforms = [
-  { goos: 'darwin', goarch: 'amd64', output: 'skillctl-darwin-amd64' },
-  { goos: 'darwin', goarch: 'arm64', output: 'skillctl-darwin-arm64' },
-  { goos: 'linux', goarch: 'amd64', output: 'skillctl-linux-amd64' },
-  { goos: 'linux', goarch: 'arm64', output: 'skillctl-linux-arm64' },
-  { goos: 'windows', goarch: 'amd64', output: 'skillctl-windows-amd64.exe' },
+  { goos: 'darwin', goarch: 'amd64', output: 'skillctl-cli-darwin-amd64' },
+  { goos: 'darwin', goarch: 'arm64', output: 'skillctl-cli-darwin-arm64' },
+  { goos: 'linux', goarch: 'amd64', output: 'skillctl-cli-linux-amd64' },
+  { goos: 'linux', goarch: 'arm64', output: 'skillctl-cli-linux-arm64' },
+  { goos: 'windows', goarch: 'amd64', output: 'skillctl-cli-windows-amd64.exe' },
 ];
 
 const rootDir = path.join(__dirname, '..');

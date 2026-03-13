@@ -1,1 +1,55 @@
-{"name": "skillctl", "version": "1.0.0", "description": "CLI tool for managing AI agent skills", "main": "bin/skillctl.js", "bin": {"skillctl": "bin/skillctl.js"}, "scripts": {"install": "node scripts/install.js", "postinstall": "node scripts/postinstall.js", "uninstall": "node scripts/uninstall.js", "prepack": "node scripts/prepack.js"}, "files": ["bin/", "scripts/", "package.json", "README.md"], "keywords": ["ai", "agent", "skills", "cli", "tool"], "author": "Your Name", "license": "MIT", "repository": {"type": "git", "url": "https://github.com/your-username/skillctl.git"}, "bugs": {"url": "https://github.com/your-username/skillctl/issues"}, "homepage": "https://github.com/your-username/skillctl#readme", "engines": {"node": ">=14.0.0"}, "os": ["darwin", "linux", "win32"], "cpu": ["x64", "arm64"], "dependencies": {"node-fetch": "^2.7.0", "tar": "^6.2.0"}}
+{
+  "name": "skillctl-cli",
+  "version": "1.0.2",
+  "description": "CLI tool for managing AI agent skills",
+  "main": "bin/skillctl.js",
+  "bin": {
+    "skillctl": "bin/skillctl.js",
+    "skillctl-cli": "bin/skillctl.js"
+  },
+  "scripts": {
+    "install": "node scripts/install.js",
+    "postinstall": "node scripts/postinstall.js",
+    "uninstall": "node scripts/uninstall.js",
+    "prepack": "node scripts/prepack.js"
+  },
+  "files": [
+    "bin/",
+    "scripts/",
+    "package.json",
+    "README.md"
+  ],
+  "keywords": [
+    "ai",
+    "agent",
+    "skills",
+    "cli",
+    "tool"
+  ],
+  "author": "zbning",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nings-379/skillctl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Nings-379/skillctl/issues"
+  },
+  "homepage": "https://github.com/Nings-379/skillctl#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
+  ],
+  "dependencies": {
+    "node-fetch": "^2.7.0",
+    "tar": "^6.2.0"
+  }
+}

@@ -8,9 +8,9 @@ const os = require('os');
 const { execSync } = require('child_process');
 
 // 配置
-const REPO_OWNER = 'your-username';
+const REPO_OWNER = 'Nings-379';
 const REPO_NAME = 'skillctl';
-const BINARY_NAME = 'skillctl';
+const BINARY_NAME = 'skillctl-cli';
 
 // 获取平台和架构
 const platform = os.platform();
@@ -38,7 +38,7 @@ if (!targetPlatform || !targetArch) {
   process.exit(1);
 }
 
-console.log(`🚀 正在安装 skillctl...`);
+console.log(`🚀 正在安装 skillctl-cli...`);
 console.log(`📦 目标平台: ${targetPlatform}/${targetArch}`);
 
 // 构建下载 URL
@@ -110,7 +110,7 @@ async function install() {
   try {
     // 检查是否已经安装
     if (fs.existsSync(outputPath)) {
-      console.log('✅ skillctl 已经安装');
+      console.log('✅ skillctl-cli 已经安装');
       return;
     }
 
@@ -129,7 +129,7 @@ async function install() {
     // 验证安装
     try {
       execSync(`"${outputPath}" --version`, { stdio: 'pipe' });
-      console.log('✅ skillctl 安装成功！');
+      console.log('✅ skillctl-cli 安装成功！');
     } catch (err) {
       console.error('❌ 安装验证失败');
       fs.unlinkSync(outputPath);
