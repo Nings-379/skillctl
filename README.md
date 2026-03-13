@@ -43,7 +43,7 @@ Skill 是一个用 Go 语言开发的命令行工具，帮助 AI Agent 管理技
 
 ```cmd
 git clone https://github.com/Nings-379/skillctl.git
-cd .\ai-agent-skill
+cd .\skillctl
 go build -o skillctl.exe .
 ```
 
@@ -52,7 +52,7 @@ go build -o skillctl.exe .
 
 ```bash
 git clone https://github.com/Nings-379/skillctl.git
-cd ai-agent-skill
+cd skillctl
 go build -o skillctl .
 ```
 
