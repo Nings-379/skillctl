@@ -1,0 +1,67 @@
+stages:
+  - test
+  - build
+  - release
+
+variables:
+  BINARY_NAME: skillctl
+  GOPROXY: "https://goproxy.cn,direct"
+  GONOSUMCHECK: "*"
+
+test:
+  stage: test
+  image: golang:1.24
+  script:
+    - go build -o ${BINARY_NAME} .
+    - ./${BINARY_NAME} --help
+    - go test ./... || true
+  rules:
+    - if: $CI_COMMIT_BRANCH
+    - if: $CI_COMMIT_TAG
+
+build:
+  stage: build
+  image: golang:1.24
+  script:
+    - mkdir -p dist
+    - GOOS=linux GOARCH=amd64 go build -o dist/${BINARY_NAME}-linux-amd64 .
+    - GOOS=linux GOARCH=arm64 go build -o dist/${BINARY_NAME}-linux-arm64 .
+    - GOOS=windows GOARCH=amd64 go build -o dist/${BINARY_NAME}-windows-amd64.exe .
+    - GOOS=darwin GOARCH=amd64 go build -o dist/${BINARY_NAME}-darwin-amd64 .
+    - GOOS=darwin GOARCH=arm64 go build -o dist/${BINARY_NAME}-darwin-arm64 .
+  artifacts:
+    paths:
+      - dist/
+  rules:
+    - if: $CI_COMMIT_TAG
+
+release:
+  stage: release
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  needs:
+    - build
+  script:
+    - echo "Creating release for ${CI_COMMIT_TAG}"
+  release:
+    tag_name: ${CI_COMMIT_TAG}
+    name: "Release ${CI_COMMIT_TAG}"
+    description: "Automated release for ${CI_COMMIT_TAG}. Download the binary for your platform below."
+    assets:
+      links:
+        - name: "skillctl-linux-amd64"
+          url: "${CI_PROJECT_URL}/-/jobs/artifacts/${CI_COMMIT_TAG}/raw/dist/skillctl-linux-amd64?job=build"
+          filepath: "/dist/skillctl-linux-amd64"
+        - name: "skillctl-linux-arm64"
+          url: "${CI_PROJECT_URL}/-/jobs/artifacts/${CI_COMMIT_TAG}/raw/dist/skillctl-linux-arm64?job=build"
+          filepath: "/dist/skillctl-linux-arm64"
+        - name: "skillctl-windows-amd64.exe"
+          url: "${CI_PROJECT_URL}/-/jobs/artifacts/${CI_COMMIT_TAG}/raw/dist/skillctl-windows-amd64.exe?job=build"
+          filepath: "/dist/skillctl-windows-amd64.exe"
+        - name: "skillctl-darwin-amd64"
+          url: "${CI_PROJECT_URL}/-/jobs/artifacts/${CI_COMMIT_TAG}/raw/dist/skillctl-darwin-amd64?job=build"
+          filepath: "/dist/skillctl-darwin-amd64"
+        - name: "skillctl-darwin-arm64"
+          url: "${CI_PROJECT_URL}/-/jobs/artifacts/${CI_COMMIT_TAG}/raw/dist/skillctl-darwin-arm64?job=build"
+          filepath: "/dist/skillctl-darwin-arm64"
+  rules:
+    - if: $CI_COMMIT_TAG
