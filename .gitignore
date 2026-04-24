@@ -1,0 +1,54 @@
+# Binaries
+skill
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Build output
+build/
+dist/
+
+# Test binary
+*.test
+
+# Output of the go coverage tool
+*.out
+
+# Dependency directories
+vendor/
+
+# Go workspace file
+go.work
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+
+# Skills directory
+.skills/
+
+# User skills repository
+.skill/
+
+# Project skills directories (these can vary per project)
+.github/skills/
+.agents/skills/
+.claude/skills/
+.copilot/skills/
+examples/skills/
